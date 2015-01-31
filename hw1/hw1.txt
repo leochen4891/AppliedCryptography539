@@ -1,0 +1,25 @@
+CSE 539 – 2015
+
+Homework 1
+Due: Feb 3rd, 2015
+
+Groups: You are permitted to do the HW individually or in a group of 2 people.
+ 
+
+Design (invent) a 32 bit encryption algorithm (block encryption). This algorithm takes as input two 32 bit quantities, (plaintext and key) and produces a 32 bit quantity as an output (ciphertext).  The input, output and key are all type-less (or can be thought of as unsigned integers) – as they could be any form of data.
+
+The input and key should not be easily derivable from the output. Also the encryption algorithm must be reversible (decryption) when a key is known.
+
+1. Write a program to encrypt and decrypt data and test your programs. The program should read from a file whose name is supplied on the command line, and produce output in a file called file.out.
+
+  Make sure you test it on several kinds of input such as text, PDF, JPG and so on. Please use Linux. You may use C oo C++ or Java, but you may find C/C++ more suited for this project.
+
+2. Attempt to find weaknesses and say how to “break” the algorithm you have designed.
+
+Bonus question
+3. Attempt to write a brute force decoder that finds the input without knowing the key.
+
+
+SUBMIT : A 1-page (max 1.5 page) report describing your algorithm and how it worked (and attempts at Q2 and/or Q3).
+
+Methods of submission: Hard copy, hand it in, in class.  If 2 people do same project, hand on only 1 copy with 2 names.
