@@ -1,0 +1,60 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+F	md5.h	112;"	d
+FF	md5.h	122;"	d
+G	md5.h	113;"	d
+GG	md5.h	127;"	d
+H	md5.h	114;"	d
+HH	md5.h	132;"	d
+I	md5.h	115;"	d
+II	md5.h	137;"	d
+MD5Final	md5.h	/^void MD5Final (MD5_CTX *mdContext) {$/;"	f
+MD5Init	md5.h	/^void MD5Init ( MD5_CTX *mdContext) {$/;"	f
+MD5Update	md5.h	/^void MD5Update ( MD5_CTX *mdContext, unsigned char *inBuf, unsigned int inLen) {$/;"	f
+MD5_CTX	md5.h	/^} MD5_CTX;$/;"	t	typeref:struct:__anon1
+PADDING	md5.h	/^static unsigned char PADDING[64] = {$/;"	v
+ROTATE_LEFT	md5.h	118;"	d
+S11	md5.h	228;"	d
+S12	md5.h	229;"	d
+S13	md5.h	230;"	d
+S14	md5.h	231;"	d
+S21	md5.h	250;"	d
+S22	md5.h	251;"	d
+S23	md5.h	252;"	d
+S24	md5.h	253;"	d
+S31	md5.h	272;"	d
+S32	md5.h	273;"	d
+S33	md5.h	274;"	d
+S34	md5.h	275;"	d
+S41	md5.h	294;"	d
+S42	md5.h	295;"	d
+S43	md5.h	296;"	d
+S44	md5.h	297;"	d
+Transform	md5.h	/^static void Transform ( UINT4 *buf, UINT4 *in) {$/;"	f
+UINT4	md5.h	/^typedef unsigned long int UINT4;$/;"	t
+buf	decrypt.c	/^int buf, n, infile, outfile;$/;"	v
+buf	encrypt.c	/^int buf, n, infile, outfile;$/;"	v
+buf	md5.h	/^    UINT4 buf[4];                                    \/* scratch buffer *\/$/;"	m	struct:__anon1
+decrypt	decrypt.c	/^decrypt(int key)$/;"	f
+digest	md5.h	/^    unsigned char digest[16];     \/* actual digest after MD5Final call *\/$/;"	m	struct:__anon1
+encrypt	encrypt.c	/^int encrypt(char *name)$/;"	f
+i	md5.h	/^    UINT4 i[2];                   \/* number of _bits_ handled mod 2^64 *\/$/;"	m	struct:__anon1
+in	md5.h	/^    unsigned char in[64];                              \/* input buffer *\/$/;"	m	struct:__anon1
+infile	decrypt.c	/^int buf, n, infile, outfile;$/;"	v
+infile	encrypt.c	/^int buf, n, infile, outfile;$/;"	v
+key	decrypt.c	/^unsigned int key;$/;"	v
+key	encrypt.c	/^int key; \/\/ symmetric key$/;"	v
+lastbytes	decrypt.c	/^lastbytes(int outfile, int size, int buf) \/\/ magic code for extracting last bytes of encryption without the padding$/;"	f
+main	decrypt.c	/^main(int argc, char *argv[])$/;"	f
+main	encrypt.c	/^main(int argc, char *argv[])$/;"	f
+mdContext	decrypt.c	/^MD5_CTX mdContext; $/;"	v
+mdContext	encrypt.c	/^MD5_CTX mdContext;  \/\/ needed to compute MD5$/;"	v
+mykeygen	encrypt.c	/^mykeygen() \/\/ generate a key, from system entropy$/;"	f
+n	decrypt.c	/^int buf, n, infile, outfile;$/;"	v
+n	encrypt.c	/^int buf, n, infile, outfile;$/;"	v
+outfile	decrypt.c	/^int buf, n, infile, outfile;$/;"	v
+outfile	encrypt.c	/^int buf, n, infile, outfile;$/;"	v
