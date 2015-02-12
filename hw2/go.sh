@@ -1,3 +1,3 @@
-g++ -o encrypt encrypt.c
-g++ -o decrypt decrypt.c
-./encrypt input.txt
+#g++ -o encrypt encrypt.c
+#g++ -o decrypt decrypt.c
+g++ -w -o bf bruteforce.cpp

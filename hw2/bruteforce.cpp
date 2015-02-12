@@ -3,14 +3,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <string.h>
+#include <iostream>
 
 #include "md5.h"
-
-// input : ./prog key
 
 unsigned int key;
 int buf, n, infile, outfile;
 MD5_CTX mdContext; 
+
+#define UKN_FILE_TYPE -1
+#define PDF_FILE_TYPE 0
+#define PNG_FILE_TYPE 1
+#define TXT_FILE_TYPE 2
 
 
 int lastbytes(int outfile, int size, int buf) // magic code for extracting last bytes of encryption without the padding
@@ -62,10 +67,32 @@ int decrypt(int key)
     };
 };
 
+static void show_usage(std::string name)
+{
+    std::cerr << "Usage: " << "burteforce" << " FILE_NAME FILE_TYPE\n"
+        << "FILE_TYPE options:\n"
+        << "\t-pdf\tthe ENC_FILE is a pdf file\n"
+        << "\t-png\tthe ENC_FILE is a png file\n"
+        << "\t-txt\tthe ENC_FILE is a txt file\n"
+        << std::endl;
+}
+
 int main(int argc, char *argv[])
 {
-    int key;
-    sscanf(argv[1], "%x", &key); 
-    //  printf("%x\n", key);
-    decrypt (key);
+    if (argc < 3) {
+        show_usage(argv[0]);
+        return 1;
+    }
+    char* encFileName = argv[1];
+    int encFileType = UKN_FILE_TYPE;
+
+    if (0 == strcmp("-pdf", argv[2])) {
+        encFileType = PDF_FILE_TYPE;
+    } else if (0 == strcmp("-png", argv[2])) {
+        encFileType = PNG_FILE_TYPE;
+    } else if (0 == strcmp("-txt", argv[2])) {
+        encFileType = TXT_FILE_TYPE;
+    }
+
+    std::cout << "Start brute forcing: " << encFileName << " (type = " << encFileType << ")" <<std::endl;
 };
