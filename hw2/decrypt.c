@@ -66,6 +66,6 @@ int main(int argc, char *argv[])
 {
     int key;
     sscanf(argv[1], "%x", &key); 
-    //  printf("%x\n", key);
+    printf("%x\n", key);
     decrypt (key);
 };
