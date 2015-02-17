@@ -65,4 +65,5 @@ int main(int argc, char *argv[])
     printf ("key: %x  <needed for decryption>\n", key);
 
     encrypt(argv[1]); // encrypt input file and place in "output"
+    getchar();
 };
