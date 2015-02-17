@@ -109,7 +109,7 @@ int bruteforce() {
         int wrongKey = 0;
         int remain = size;
 
-        int THE_KEY = 0x1d41ba64;
+        int THE_KEY = 0x0;
 
         for (long long i = THE_KEY ; i <= BF_MAX; i++) {
             if (inc == interval) {
