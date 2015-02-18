@@ -65,6 +65,7 @@ int decryptKeyless() {
         printf("read first 4 bytes failed");
         return 1;
     }
+    printf("first 4 bytes is %x\n", buf);
 
     if (encFileType == ENC_FILE_TYPE_PDF) {
         key = buf ^ ENC_FILE_HEAD_PDF;

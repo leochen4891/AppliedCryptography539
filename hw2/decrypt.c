@@ -46,7 +46,10 @@ int decrypt(int key)
     if (outfile<0) { printf("output open error\n"); exit(0); }
 
     while ((n = read(infile, &buf, 4))> 0) {
+        //printf("buf = %x, key = %x\n", buf, rollingkey);
         buf = buf ^ rollingkey; // doing the reverse of encrypt
+        //printf("result = %x\n", buf);
+        //getchar();
         MD5Init(&mdContext);
         MD5Update(&mdContext, (unsigned char*)&rollingkey, 4);
         MD5Final(&mdContext);
