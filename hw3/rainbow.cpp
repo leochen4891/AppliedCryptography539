@@ -119,13 +119,52 @@ void rainbowAttack() {
         rt[hash]=head;
         nextPass();
     }
-    
+
     // dbg print the content of the rainbow table
     printf("rt size = %d\n", rt.size());
     for(unordered_map<int,string>::iterator it = rt.begin(); it != rt.end(); ++it) {
         std::cout << " " << hex << it->first << ":" << it->second << endl;
     }
 
+    // try to find the target in the rainbow table
+    int target = 0xc2add68c;
+    target = 0xdc35ddb0;
+    target = 0x9b3d65b8;// pwd = 0000
+
+    char pwd[4];
+    int hash=target;
+    int count = 0;
+    bool found;
+
+    while(rt.find(hash) == rt.end() && count <= RAINBOW_TABLE_W) {
+        reductionFunc(hash, pwd);
+        hash = getHash(pwd);
+        printf("hash = %x\n", hash);
+        count++;
+    }
+    if (count > RAINBOW_TABLE_W) {
+        printf("hash %x is not in the rainbow table\n", target);
+        found = false;
+    } else {
+        printf("found hash %x\n", target);
+        found = true;
+    }
+
+    if (found) {
+        string head = rt[hash];
+        printf("head = %s\n", head.c_str());
+        count  = 0;
+        memcpy(pwd,head.c_str(),4);
+        hash = getHash(pwd);
+        while(hash != target && count <= RAINBOW_TABLE_W) {
+            reductionFunc(hash, pwd);
+            hash = getHash(pwd);
+            count++;
+        }
+        if (hash == target) {
+            printf("succeed, %c%c%c%c --H--> %x\n", pwd[0],pwd[1],pwd[2],pwd[3], hash);
+        }
+    }
 }
 
 int main(int argc, char *argv[])
@@ -133,7 +172,7 @@ int main(int argc, char *argv[])
     std::cout << "Start rainbow attacking: " << std::endl;
     pass[0] = pass[1] = pass[2] = pass[3] = '0';
     rainbowAttack();
-    
+
     /* int hash = 0x40506070; */
     /* reductionFunc(hash, pass); */
     /* printf("%x -R-> %c%c%c%c\n", hash, pass[0], pass[1], pass[2], pass[3]); */
