@@ -31,7 +31,7 @@ public class HW4 {
 
 			certRaghu = (X509Certificate) cf.generateCertificate(fisRaghuPub);
 
-			// Verify Raghu’s certificate.
+			// Verify Raghuï¿½s certificate.
 			// 1. Print the certificate.
 			System.out.println("==============================================================");
 			System.out.println("================  1. print the certificate  ==================");
@@ -39,7 +39,7 @@ public class HW4 {
 			System.out.println(certRaghu.toString());
 			System.out.println();
 
-			// 2. Print Raghu’s public and private key
+			// 2. Print Raghuï¿½s public and private key
 			System.out.println("==============================================================");
 			System.out.println("=========  2. print Raghu's public and private key  ==========");
 			System.out.println("==============================================================");
@@ -81,14 +81,14 @@ public class HW4 {
 			System.out.println(certCA.getPublicKey().toString());
 			System.out.println();
 
-			// 4. Print the signature on TA’s certificate
+			// 4. Print the signature on TAï¿½s certificate
 			System.out.println("==============================================================");
-			System.out.println("=======   4. Print the signature on TA’s certificate  ========");
+			System.out.println("=======   4. Print the signature on TA's certificate  ========");
 			System.out.println("==============================================================");
 			System.out.println(byteArrayToHex(certRaghu.getSignature()));
 			System.out.println();
 
-			// 5. Encrypt and Decrypt “Our names are << names>>. We are enrolled in CSE 539." using RSA
+			// 5. Encrypt and Decrypt Our names are << names>>. We are enrolled in CSE 539." using RSA
 			String plainText = "Our names are Lei Chen & Bin Zhu. We are enrolled in CSE 539";
 			System.out.println("==============================================================");
 			System.out.println("=== 5. Encrypt and decrypt the following string using RSA  ===");
