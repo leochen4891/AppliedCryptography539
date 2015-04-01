@@ -110,10 +110,10 @@ public class HW4 {
 			System.out.println("=========== 6. Verify Raghu's certificate  ===================");
 			System.out.println("==============================================================");
 			try {
-				certRaghu.checkValidity();
-				System.out.println("Valid!");
+				certRaghu.verify(certCA.getPublicKey());
+				System.out.println("Verification Succeed!");
 			} catch (Exception e) {
-				System.out.println("Invalid! (" + e.getMessage() + ")");
+				System.out.println("Verification Failed! (" + e.getMessage() + ")");
 			}
 
 		} catch (Exception e) {
