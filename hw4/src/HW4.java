@@ -1,11 +1,14 @@
 import java.io.FileInputStream;
 import java.security.Key;
 import java.security.KeyStore;
+import java.security.Signature;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Enumeration;
 
 import javax.crypto.Cipher;
+
+import sun.security.x509.X509CertInfo;
 
 public class HW4 {
 
@@ -109,11 +112,24 @@ public class HW4 {
 			System.out.println("==============================================================");
 			System.out.println("=========== 6. Verify Raghu's certificate  ===================");
 			System.out.println("==============================================================");
+
+			Signature sigVerf = null;
+			sigVerf = Signature.getInstance(certRaghu.getSigAlgName());
+			sigVerf.initVerify(certCA.getPublicKey());
+			X509CertInfo info = new X509CertInfo(certRaghu.getTBSCertificate());
+			byte[] rawCert = info.getEncodedInfo();
+			sigVerf.update(rawCert, 0, rawCert.length);
+			if (sigVerf.verify(certRaghu.getSignature())) {
+				System.out.println("Verification Succeed! (manually)");
+			} else {
+				System.out.println("Verification Failed! (manually)");
+			}
+
 			try {
 				certRaghu.verify(certCA.getPublicKey());
-				System.out.println("Verification Succeed!");
+				System.out.println("Verification Succeed! (library call)");
 			} catch (Exception e) {
-				System.out.println("Verification Failed! (" + e.getMessage() + ")");
+				System.out.println("Verification Failed! (library call)");
 			}
 
 		} catch (Exception e) {
