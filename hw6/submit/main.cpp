@@ -140,7 +140,7 @@ void q1() {
 
 void q2() {
     printf("\n");
-    printf("- - - - - - - - - - - - Challenge Response: Scheme 0 - - - - - - - - - - - - - -\n");
+    printf("- - - - - - - - - - - 2. Challenge Response: Scheme 0 - - - - - - - - - - - - - \n");
 
 #if(!HIDE_QUSTIONS)
     printf("a) Create an RSA object. Call it RSA1                                           \n");
@@ -182,7 +182,7 @@ void q2() {
 void q3() {
 
     printf("\n");
-    printf("- - - - - - - - - - - - - - Blind Signature - - - - - - - - - - - - - - - - - -\n");
+    printf("- - - - - - - - - - - - - - 3. Blind Signature - - - - - - - - - - - - - - - - \n");
 
 #if(!HIDE_QUSTIONS)
     printf("Blind signature is a kind of signature, where the signing authority does not   \n");
